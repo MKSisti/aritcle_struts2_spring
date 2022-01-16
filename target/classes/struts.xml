@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+  	<package name="default" namespace="/" extends="struts-default">
+  		<default-action-ref name="index"></default-action-ref>
+  		<!-- index redirects to list all action -->
+  		<action name="index" class="com.TB.web.ArticleAction" method="getAll">
+  			<result type="redirectAction">listAll</result>
+  		</action>
+  		<action name="goToCreate">
+  			<result>/views/create.jsp</result>
+  		</action>
+  		<action name="goToUpdate" class="com.TB.web.ArticleAction" method="goToUpdate">
+  			<result>/views/update.jsp</result>
+  		</action>
+  		<!-- actions -->
+  		<action name="listAll" class="com.TB.web.ArticleAction" method="getAll">
+  			<result>views/list.jsp</result>
+  		</action>
+  		<action name="doCreate" class="com.TB.web.ArticleAction" method="create">
+  			<result name="error">/views/create.jsp</result>
+  			<result type="redirectAction">listAll</result>
+  		</action>
+  		<action name="doUpdate" class="com.TB.web.ArticleAction" method="update">
+  			<result name="error">/views/update.jsp</result>
+  			<result type="redirectAction">listAll</result>
+  		</action>
+  		<action name="doDelete" class="com.TB.web.ArticleAction" method="delete">
+  			<result type="redirectAction">listAll</result>
+  		</action>
+  	</package>
+</struts>
