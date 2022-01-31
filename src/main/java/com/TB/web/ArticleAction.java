@@ -25,8 +25,16 @@ public class ArticleAction extends ActionSupport {
 	List<Article> articles = new ArrayList<>();
 	Article a = new Article();
 	int code;
+	String mode_insertion = "creating";
 	
-	
+
+	public String getMode_insertion() {
+		return mode_insertion;
+	}
+
+	public void setMode_insertion(String mode_insertion) {
+		this.mode_insertion = mode_insertion;
+	}
 
 	public int getCode() {
 		return code;
@@ -54,7 +62,9 @@ public class ArticleAction extends ActionSupport {
 
 //	Actions :
 	public String goToUpdate () {
+		mode_insertion = "updating";
 		a = service.getArticle(code);
+		articles = service.listArticles();
 		return SUCCESS;
 	}
 	public String index() {

@@ -13,12 +13,12 @@
   			<result>/views/create.jsp</result>
   		</action>
   		<action name="goToUpdate" class="com.TB.web.ArticleAction" method="goToUpdate">
-  			<result>/views/update.jsp</result>
+  			<result>/views/index.jsp</result>
   		</action>
-  		<!-- actions -->
+  		<!-- actions 
   		<action name="listAll" class="com.TB.web.ArticleAction" method="getAll">
   			<result>views/list.jsp</result>
-  		</action>
+  		</action>-->
   		<action name="doCreate" class="com.TB.web.ArticleAction" method="create">
   			<result name="error">/views/create.jsp</result>
   			<result type="redirectAction">listAll</result>
@@ -29,6 +29,10 @@
   		</action>
   		<action name="doDelete" class="com.TB.web.ArticleAction" method="delete">
   			<result type="redirectAction">listAll</result>
+  		</action>
+  		<!-- new actions -->
+  		<action name="listAll" class="com.TB.web.ArticleAction" method="getAll">
+  			<result>views/index.jsp</result>
   		</action>
   	</package>
 </struts>
